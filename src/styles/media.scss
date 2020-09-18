@@ -1,0 +1,142 @@
+@mixin media {
+  @media screen and (max-device-width: 1200px) {
+    
+  }
+
+  @media screen and (max-device-width: 992px) {
+    //  NAV
+
+    .navBar {
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .logoBrand {
+        flex-basis: 10%;
+      }
+  
+      .navFormContainer {
+        flex-basis: 80%;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        .navFieldSearch {
+          width: 50%;
+        }
+
+        .navIconContainer {
+          margin-right: 1rem;
+          margin-left: 0;
+          .navBelIcon {
+
+          }
+
+          .calendar {
+            position: absolute;
+            width: 50vw;
+            width: 40vw;
+            left: 0;
+            right: 0;
+            
+            margin-top: 20px;
+    
+            .c1 {
+              background-color: greenyellow;
+            }
+          }
+        }
+      }
+  
+      .navLinksContainer {
+        flex-basis: 100%;
+        flex-wrap: nowrap;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        order: 20;
+
+          a {
+            
+          }
+      }
+    }
+  }
+
+  @media screen and (max-device-width: 768px) {
+    //NAV
+
+    .navBar {
+
+      .logoBrand {
+
+      }
+  
+      .navFormContainer {
+
+        .navFieldSearch {
+        }
+
+        .navIconContainer {
+
+          .navBelIcon {
+
+          }
+
+          .calendar {
+            position: absolute;
+            width: 70vw;
+            left: -30vw;
+            margin-top: 20px;
+    
+            .c1 {
+              background-color: greenyellow;
+            }
+          }
+        }
+      }
+  
+      .navLinksContainer {
+
+      }
+    }
+  }
+
+  @media screen and (max-device-width: 576px) {
+    //NAV
+
+    .navBar {
+
+      .logoBrand {
+
+      }
+  
+      .navFormContainer {
+
+        .navFieldSearch {
+        }
+
+        .navIconContainer {
+
+          .navBelIcon {
+
+          }
+
+          .calendar {
+            position: absolute;
+            width: 90vw;
+            left: -25vw;
+            
+            margin-top: 20px;
+    
+            .c1 {
+              background-color: greenyellow;
+            }
+          }
+        }
+      }
+  
+      .navLinksContainer {
+
+      }
+    }
+  }
+}

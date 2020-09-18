@@ -1,11 +1,13 @@
 import React from 'react';
 import NewTaskForm from './NewTaskForm.jsx';
 import Tasks from './Tasks.jsx';
+import NavBar from './NavBar.jsx';
 
 const App = () => (
-  <div className="col-5">
-    <NewTaskForm />
-    <Tasks />
-  </div>
+  <>
+    <NavBar />
+    {/* <NewTaskForm />
+    <Tasks /> */}
+  </>
 );
 export default App;

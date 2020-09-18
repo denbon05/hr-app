@@ -4,6 +4,23 @@ import { handleActions } from 'redux-actions';
 import { reducer as formReducer } from 'redux-form';
 import * as actions from '../actions/index.js';
 
+const reminder = handleActions({
+  [actions.clickBell](state) {
+    const { bellClicked } = state;
+    state.bellClicked = !bellClicked;
+    return { ...state };
+  }
+}, { bellClicked: false });
+
+const navForm = handleActions({
+  [actions.clickSearch](state) {
+
+  },
+  [actions.inputChange](state, {payload: { value } }) {
+
+  }
+}, { currentValue: '', searchOn: false });
+
 const tasks = handleActions({
   [actions.addTask](state, { payload: { task } }) {
     const { byId, allIds } = state;
@@ -31,6 +48,8 @@ const tasks = handleActions({
 }, { byId: {}, allIds: [] });
 
 export default combineReducers({
+  reminder,
+  navForm,
   tasks,
   form: formReducer,
 });
