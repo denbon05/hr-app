@@ -1,5 +1,3 @@
-// @ts-check
-
 import _ from 'lodash';
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
