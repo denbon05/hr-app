@@ -9,6 +9,7 @@
     .navBar {
       flex-wrap: wrap;
       justify-content: space-between;
+      height: 110px;
 
       .logoBrand {
         flex-basis: 10%;
@@ -31,17 +32,7 @@
           }
 
           .calendar {
-            position: absolute;
-            width: 50vw;
-            width: 40vw;
-            left: 0;
-            right: 0;
-            
-            margin-top: 20px;
-    
-            .c1 {
-              background-color: greenyellow;
-            }
+            margin-top: 60px;
           }
         }
       }
@@ -82,14 +73,7 @@
           }
 
           .calendar {
-            position: absolute;
-            width: 70vw;
-            left: -30vw;
-            margin-top: 20px;
-    
-            .c1 {
-              background-color: greenyellow;
-            }
+            
           }
         }
       }
@@ -121,15 +105,8 @@
           }
 
           .calendar {
-            position: absolute;
-            width: 90vw;
-            left: -25vw;
-            
-            margin-top: 20px;
-    
-            .c1 {
-              background-color: greenyellow;
-            }
+            left: 1%;
+            right: 1%;
           }
         }
       }
