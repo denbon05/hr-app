@@ -31,9 +31,13 @@ function Calendar() {
           console.log('Start:', start, 'End:', end);
         })
       }}
-      // onEventsRequested={({ calendarId, start, end, callback }) => {
-      //   loadMoreEvents(calendarId, start, end).then(callback);
-      // }}
+      onEventsRequested={({ calendarId, start, end, callback }) => {
+        console.log(calendarId, 'CALENDAR ID');
+        console.log(start, 'START');
+        console.log(end, 'END');
+        console.log(callback, 'CALLBACK');
+        // loadMoreEvents(calendarId, start, end).then(callback);
+      }}
       initialSelections={[
         { start: aDateObject, end: anotherDateObject }
       ]}

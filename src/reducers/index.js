@@ -16,13 +16,26 @@ const navForm = handleActions({
   [actions.clickSearch](state) {
 
   },
-  [actions.inputChange](state, {payload: { value } }) {
+  // [actions.inputChange](state, {payload: { value } }) {
 
-  }
+  // }
 }, { currentValue: '', searchOn: false });
 
+const modals = handleActions({
+  [actions.showAddModal](state, { payload: modalAddShow }) {
+    return { ...state, modallAddOn: modalAddShow };
+  },
+  [actions.addWorker](state) {
+    // const { byId, allIds } = state;
+    // return {
+    //   byId: { ...byId, [task.id]: task },
+    //   allIds: [task.id, ...allIds],
+    // };
+  },
+}, { modallAddOn: false });
+
 const tasks = handleActions({
-  [actions.addTask](state, { payload: { task } }) {
+  [actions.confirmAdding](state, { payload: { inputedWorkerInfo } }) {
     const { byId, allIds } = state;
     return {
       byId: { ...byId, [task.id]: task },
@@ -45,9 +58,10 @@ const tasks = handleActions({
       byId: { ...state.byId, [task.id]: updatedTask },
     };
   },
-}, { byId: {}, allIds: [] });
+}, { byId: {}, allIds: [], openAddModal: false,  });
 
 export default combineReducers({
+  modals,
   reminder,
   navForm,
   tasks,

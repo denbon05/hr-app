@@ -10,7 +10,7 @@ const mapStateToProps = () => {
 };
 
 const actionCreators = {
-  addTask: actions.addTask,
+  // addTask: actions.addTask,
 };
 
 class NewTaskForm extends React.Component {
