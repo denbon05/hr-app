@@ -1,3 +1,4 @@
+@import './modals.scss';
 @import './media.scss';
 
 * {
@@ -81,5 +82,5 @@
   }
 }
 
-
+@include modals;
 @include media;

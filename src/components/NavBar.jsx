@@ -72,7 +72,7 @@ class NavBar extends React.Component {
           </Form>
         </Navbar>
 
-        <AddModal onHide={modallAddOn} />
+        <AddModal show={modallAddOn} />
       </>
     );
   }

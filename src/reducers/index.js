@@ -12,18 +12,11 @@ const reminder = handleActions({
   }
 }, { bellClicked: false });
 
-const navForm = handleActions({
-  [actions.clickSearch](state) {
-
-  },
-  // [actions.inputChange](state, {payload: { value } }) {
-
-  // }
-}, { currentValue: '', searchOn: false });
-
 const modals = handleActions({
-  [actions.showAddModal](state, { payload: modalAddShow }) {
-    return { ...state, modallAddOn: modalAddShow };
+  [actions.showAddModal](state) {
+    const { modallAddOn } = state;
+    state.modallAddOn = !modallAddOn;
+    return { ...state };
   },
   [actions.addWorker](state) {
     // const { byId, allIds } = state;
@@ -33,6 +26,12 @@ const modals = handleActions({
     // };
   },
 }, { modallAddOn: false });
+
+const navForm = handleActions({
+  [actions.clickSearch](state) {
+
+  },
+}, { currentValue: '', searchOn: false });
 
 const tasks = handleActions({
   [actions.confirmAdding](state, { payload: { inputedWorkerInfo } }) {

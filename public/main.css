@@ -1,3 +1,15 @@
+.modalBackgroundDiv {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 0;
+  top: 0;
+  background-image: linear-gradient(rgba(64, 109, 159, 0.5), rgba(255, 245, 215, 0.4));
+  z-index: 10; }
+
+.modalBackgroundDiv .containerModalAdd {
+  z-index: 20; }
+
 * {
   margin: 0;
   padding: 0; }
@@ -50,6 +62,45 @@
     display: flex;
     justify-content: space-around; }
 
+.modalBackgroundDiv .containerModalAdd {
+  background-color: rgba(43, 124, 43, 0.2);
+  width: 70%;
+  min-width: 400px;
+  max-height: 70%;
+  min-width: 400px;
+  max-width: 1000px;
+  padding: 40px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: rgba(43, 124, 43, 0.3) solid 1px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 32px 2px rgba(27, 99, 111, 0.5); }
+  .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .nameAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .telAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .addressAdd {
+      flex-basis: 100%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
+      flex-basis: 45%;
+      display: inline-flex;
+      padding-right: 8px; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+
 @media screen and (max-device-width: 992px) {
   .navBar {
     flex-wrap: wrap;
@@ -74,9 +125,43 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      order: 20; } }
+      order: 20; }
+  .modalBackgroundDiv .containerModalAdd {
+    width: 90%;
+    padding: 30px; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; }
+      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .nameAdd {
+        flex-basis: 45%; }
+      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .telAdd {
+        flex-basis: 45%; }
+      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .addressAdd {
+        flex-basis: 100%; }
+      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
+        flex-basis: 45%; }
+      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
+        flex-basis: 45%;
+        display: inline-flex; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap; } }
 
 @media screen and (max-device-width: 576px) {
   .navBar .navFormContainer .navIconContainer .calendar {
     left: 1%;
-    right: 1%; } }
+    right: 1%; }
+  .modalBackgroundDiv .containerModalAdd {
+    width: 95%;
+    padding: 20px; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
+      flex-basis: 100%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
+      flex-basis: 60%;
+      margin-left: 18vw; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap; } }

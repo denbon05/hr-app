@@ -44,10 +44,56 @@
         flex-direction: row;
         justify-content: space-around;
         order: 20;
+      }
+    }
 
-          a {
-            
+    //  MODAL ADD
+
+    .modalBackgroundDiv {
+  
+      .containerModalAdd {
+        width: 90%; 
+        padding: 30px;
+  
+        .containerForm {
+          
+          .mainInfo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+  
+            .nameAdd {
+              flex-basis: 45%;
+            }
+  
+            .telAdd {
+              flex-basis: 45%;
+            }
+  
+            .addressAdd {
+              flex-basis: 100%;
+            }
+  
+            .passportAdd {
+              flex-basis: 45%;
+            }
+  
+            .birhDayDiv {
+              flex-basis: 45%;
+              display: inline-flex;
+            }
           }
+  
+          .containerInputDateAdd {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+  
+            .arriveAdd {
+  
+            }
+          }
+        }
       }
     }
   }
@@ -113,6 +159,53 @@
   
       .navLinksContainer {
 
+      }
+    }
+
+    //  MODAL ADD
+
+    .modalBackgroundDiv {
+  
+      .containerModalAdd {
+        width: 95%; 
+        padding: 20px;
+  
+        .containerForm {
+          
+          .mainInfo {
+  
+            .nameAdd {
+
+            }
+  
+            .telAdd {
+    
+            }
+  
+            .addressAdd {
+
+            }
+  
+            .passportAdd {
+              flex-basis: 100%;
+            }
+  
+            .birhDayDiv {
+              flex-basis: 60%;
+              margin-left: 18vw;
+            }
+          }
+  
+          .containerInputDateAdd {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+  
+            .arriveAdd {
+  
+            }
+          }
+        }
       }
     }
   }
