@@ -76,7 +76,7 @@ class AddModal extends React.Component {
                 type="numer"
                 className="mb-2 mr-sm-2 bankNumber"
                 id="inlineFormInputName7"
-                placeholder="Conto bankowe"
+                placeholder="Konto bankowe"
               />
             </div>
 
@@ -108,7 +108,7 @@ class AddModal extends React.Component {
             </div>
 
             <div className="containerSubmitWithNotesAdd">
-              <Form.Control as="textarea" rows="1" className="notesAdd" />
+              <Form.Control placeholder="Notatki" as="textarea" rows="1" className="notesAdd" />
               <Button variant="primary" className="buttonAdd" type="submit" className="mb-2">
                 Gotowo
               </Button>
