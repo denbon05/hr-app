@@ -107,6 +107,12 @@
   
             }
           }
+
+          .buttonAdd {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+          }
         }
       }
     }
@@ -201,6 +207,12 @@
             .pobytSelectAdd {
   
             }
+          }
+
+          .buttonAdd {
+            position: absolute;
+            right: 20px;
+            bottom: 15px;
           }
         }
       }
@@ -318,6 +330,18 @@
             .kartaPobytuDateAdd {
               flex-basis: 40%;
             }
+          }
+
+          .containerSubmitWithNotesAdd {
+  
+            .notesAdd {
+              flex-basis: 70%;
+              
+            }
+          }
+
+          .buttonAdd {
+            bottom: 15px;
           }
         }
       }

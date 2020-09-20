@@ -66,10 +66,10 @@
 
 .modalBackgroundDiv .containerModalAdd {
   position: relative;
-  background-color: rgba(191, 219, 191, 0.9);
-  width: 70%;
+  background-color: rgba(191, 219, 191, 0.95);
+  width: 80%;
   min-width: 400px;
-  max-height: 85%;
+  max-height: fit-content;
   min-height: fit-content;
   max-width: 1000px;
   padding: 40px;
@@ -77,11 +77,11 @@
   overflow: auto;
   margin: auto;
   position: absolute;
-  top: 1rem;
+  top: 2rem;
   left: 0;
   bottom: 0;
   right: 0;
-  border: rgba(191, 219, 191, 0.9) solid 1px;
+  border: rgba(191, 219, 191, 0.95) solid 1px;
   border-radius: 20px;
   box-shadow: 0px 0px 32px 2px rgba(27, 99, 111, 0.5); }
   .modalBackgroundDiv .containerModalAdd .closeButtonAdd {
@@ -158,10 +158,12 @@
     flex-direction: row;
     justify-content: space-between; }
     .modalBackgroundDiv .containerModalAdd .containerForm .containerSubmitWithNotesAdd .notesAdd {
-      flex-basis: 70%; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerSubmitWithNotesAdd .buttonAdd {
-      flex-basis: 20%;
-      justify-self: flex-end; }
+      flex-basis: 80%;
+      min-height: 3rem; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
+    position: absolute;
+    right: 40px;
+    bottom: 32px; }
 
 .addModalHide {
   display: none; }
@@ -219,7 +221,11 @@
     .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
       display: flex;
       justify-content: space-around;
-      flex-wrap: wrap; } }
+      flex-wrap: wrap; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
+      position: absolute;
+      right: 20px;
+      bottom: 20px; } }
 
 @media screen and (max-device-width: 768px) {
   .modalBackgroundDiv .containerModalAdd {
@@ -246,7 +252,11 @@
     .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap; } }
+      flex-wrap: wrap; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
+      position: absolute;
+      right: 20px;
+      bottom: 15px; } }
 
 @media screen and (max-device-width: 576px) {
   .navBar .navFormContainer .navIconContainer .calendar {
@@ -286,4 +296,8 @@
       .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .pipDateAdd {
         flex-basis: 40%; }
       .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaPobytuDateAdd {
-        flex-basis: 40%; } }
+        flex-basis: 40%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerSubmitWithNotesAdd .notesAdd {
+      flex-basis: 70%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
+      bottom: 15px; } }

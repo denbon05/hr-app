@@ -20,7 +20,7 @@ class AddModal extends React.Component {
   render() {
     const { toogleAddModal, modallAddOn } = this.props;
     const classesAddModalWithBG = cn('modalBackgroundDiv', {
-      addModalHide: !modallAddOn,
+      addModalHide: false /*!modallAddOn*/,
     });console.log(classesAddModalWithBG)
 
     return (
@@ -109,10 +109,10 @@ class AddModal extends React.Component {
 
             <div className="containerSubmitWithNotesAdd">
               <Form.Control placeholder="Notatki" as="textarea" rows="1" className="notesAdd" />
-              <Button variant="primary" className="buttonAdd" type="submit" className="mb-2">
-                Gotowo
-              </Button>
             </div>
+            <Button variant="success" type="submit" className="mb-2 buttonAdd">
+              Gotowo
+            </Button>
           </Form>
         </div>
       </div>
