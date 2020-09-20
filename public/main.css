@@ -113,8 +113,8 @@
         opacity: 0.9; }
         .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv [data-tooltip]::after {
           position: absolute;
-          bottom: -20px;
-          left: -35px;
+          bottom: -15px;
+          left: -45px;
           content: attr(data-tooltip);
           color: rgba(100, 89, 89, 0.72);
           font-family: 'Kufam', cursive;
@@ -133,12 +133,12 @@
     flex-direction: row;
     justify-content: space-between; }
     .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .jobAdd {
-      flex-basis: 50%; }
+      flex-basis: 40%; }
     .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .poladndFirm {
       flex-basis: 15%;
       align-self: center; }
     .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .bankNumber {
-      flex-basis: 30%; }
+      flex-basis: 40%; }
   .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
     display: flex;
     justify-content: space-around;

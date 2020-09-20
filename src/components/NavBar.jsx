@@ -10,7 +10,7 @@ import bell from '../images/bell-solid.svg';
 
 const mapStateToProps = (state) => {
   const props = {
-    modallAddOn: state.modals.modallAddOn,
+    modallAddOn: state.addModal.modallAddOn,
     bellClicked: state.reminder.bellClicked,
   };
   return props;
@@ -71,8 +71,6 @@ class NavBar extends React.Component {
             <Button variant="outline-info">Search</Button>
           </Form>
         </Navbar>
-
-        <AddModal />
       </>
     );
   }
