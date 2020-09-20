@@ -10,15 +10,15 @@ import bell from '../images/bell-solid.svg';
 
 const mapStateToProps = (state) => {
   const props = {
-    bellClicked: state.reminder.bellClicked,
     modallAddOn: state.modals.modallAddOn,
+    bellClicked: state.reminder.bellClicked,
   };
   return props;
 };
 
 const actionCreators = {
+  toogleAddModal: actions.toogleAddModal,
   clickBell: actions.clickBell,
-  showAddModal: actions.showAddModal,
 };
 
 
@@ -27,7 +27,7 @@ class NavBar extends React.Component {
 
   render() {console.log(this.props);
     const {
-      showAddModal, modallAddOn,
+      toogleAddModal, modallAddOn,
       bellClicked, clickBell,
     } = this.props;
     const bellClasses = cn("navBelIcon", {
@@ -48,7 +48,7 @@ class NavBar extends React.Component {
           </Navbar.Brand>
 
           <Nav className="navLinksContainer">
-            <Button onClick={() => showAddModal(true)} size="sm" variant="outline-success">
+            <Button onClick={toogleAddModal} size="sm" variant="outline-success">
               <i className="fas fa-user-plus fa-lg" />
             </Button>
             <Button size="sm" variant="outline-primary">
@@ -72,7 +72,7 @@ class NavBar extends React.Component {
           </Form>
         </Navbar>
 
-        <AddModal show={modallAddOn} />
+        <AddModal />
       </>
     );
   }

@@ -13,7 +13,7 @@ const reminder = handleActions({
 }, { bellClicked: false });
 
 const modals = handleActions({
-  [actions.showAddModal](state) {
+  [actions.toogleAddModal](state) {
     const { modallAddOn } = state;
     state.modallAddOn = !modallAddOn;
     return { ...state };

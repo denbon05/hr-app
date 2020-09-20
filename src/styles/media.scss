@@ -54,6 +54,8 @@
       .containerModalAdd {
         width: 90%; 
         padding: 30px;
+        padding-top: 50px;
+        top: 60px; left: 0; bottom: 0; right: 0;
   
         .containerForm {
           
@@ -77,6 +79,10 @@
             .passportAdd {
               flex-basis: 45%;
             }
+
+            .jobAdd {
+              flex-basis: 100%;
+            }
   
             .birhDayDiv {
               flex-basis: 45%;
@@ -89,7 +95,15 @@
             justify-content: space-around;
             flex-wrap: wrap;
   
-            .arriveAdd {
+            .arriveDateAdd {
+            
+            }
+  
+            .departureDateAdd {
+  
+            }
+            
+            .pobytSelectAdd {
   
             }
           }
@@ -126,6 +140,69 @@
   
       .navLinksContainer {
 
+      }
+    }
+
+    // MODAL ADD
+
+    .modalBackgroundDiv {
+  
+      .containerModalAdd {
+        width: 90%; 
+        padding: 20px;
+        padding-top: 40px;
+  
+        .containerForm {
+          
+          .mainInfo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+  
+            .nameAdd {
+              flex-basis: 45%;
+            }
+  
+            .telAdd {
+              flex-basis: 45%;
+            }
+  
+            .addressAdd {
+              flex-basis: 100%;
+            }
+  
+            .passportAdd {
+              flex-basis: 45%;
+            }
+
+            .jobAdd {
+              flex-basis: 100%;
+            }
+  
+            .birhDayDiv {
+              flex-basis: 45%;
+              display: inline-flex;
+            }
+          }
+  
+          .containerInputDateAdd {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+  
+            .arriveDateAdd {
+            
+            }
+  
+            .departureDateAdd {
+  
+            }
+            
+            .pobytSelectAdd {
+  
+            }
+          }
+        }
       }
     }
   }
@@ -195,14 +272,50 @@
               margin-left: 18vw;
             }
           }
+
+          .jobContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+  
+            .jobAdd {
+              flex-basis: 75%;
+            }
+  
+            .poladndFirm {
+              flex-basis: 15%;
+              align-self: center;
+            }
+  
+            .bankNumber {
+              flex-basis: 100%;
+            }
+          }
   
           .containerInputDateAdd {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
   
-            .arriveAdd {
+            .arriveDateAdd {
+              flex-basis: 40%;
+            }
   
+            .departureDateAdd {
+              flex-basis: 40%;
+            }
+  
+            .pobytSelectAdd {
+              flex-basis: 80%;
+            }
+  
+            .pipDateAdd {
+              flex-basis: 40%;
+            }
+  
+            .kartaPobytuDateAdd {
+              flex-basis: 40%;
             }
           }
         }
