@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
-import AddModal from './AddModal.jsx';
 import Calendar from './Calendar.jsx';
 import cn from 'classnames';
 import * as actions from '../actions/index.js';
@@ -18,6 +17,7 @@ const mapStateToProps = (state) => {
 
 const actionCreators = {
   toogleAddModal: actions.toogleAddModal,
+  setConfiguration: actions.setConfiguration,
   clickBell: actions.clickBell,
 };
 
@@ -25,9 +25,9 @@ const actionCreators = {
 
 class NavBar extends React.Component {
 
-  render() {console.log(this.props);
+  render() {
     const {
-      toogleAddModal, modallAddOn,
+      toogleAddModal, setConfiguration,
       bellClicked, clickBell,
     } = this.props;
     const bellClasses = cn("navBelIcon", {
@@ -57,7 +57,7 @@ class NavBar extends React.Component {
             <Button size="sm" variant="outline-danger">
               <i className="fas fa-users-slash fa-lg" />
             </Button>
-            <Button size="sm" variant="outline-warning">
+            <Button onClick={setConfiguration} size="sm" variant="outline-warning">
               <i className="fas fa-users-cog fa-lg" />
             </Button>
           </Nav>

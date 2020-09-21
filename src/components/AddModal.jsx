@@ -2,11 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Form } from 'react-bootstrap';
 import cn from 'classnames';
+import _ from 'lodash';
 import * as actions from '../actions/index.js';
 
 const mapStateToProps = (state) => {
   const props = {
     modallAddOn: state.addModal.modallAddOn,
+    wayOfStay: state.addModal.wayOfStay,
+    add: state.addModal,
   };
   return props;
 };
@@ -21,6 +24,9 @@ const actionCreators = {
   onchangeJob: actions.onchangeJob,
   polandFirmToogle: actions.polandFirmToogle,
   onchangeBankAccountNum: actions.onchangeBankAccountNum,
+  chooseWayOfStay: actions.chooseWayOfStay,
+  getStartVisaDate: actions.getStartVisaDate,
+  getEndVisaDate: actions.getEndVisaDate,
   selctArriveDate: actions.selctArriveDate,
   selectDepartureDate: actions.selectDepartureDate,
   onchangeCountLegalDays: actions.onchangeCountLegalDays,
@@ -48,22 +54,60 @@ class AddModal extends React.Component {
   handlerAddWorker = (e) => {
     e.preventDefault();
     const { addWorker } = this.props;
-    addWorker();
+    const id = _.uniqueId();
+    addWorker({ id });
   }
 
-  render() {
+  renderVisaInputs() {
+    const { getStartVisaDate, getEndVisaDate } = this.props;
+
+    return (
+      <div className="visaDate">
+        <Form.Group>
+        <Form.Label>Poczatek visy</Form.Label>
+          <Form.Control
+            onChange={({target: { value } }) => getStartVisaDate({ value })}
+            type="date"
+            className="mb-2"
+            id="startVisaDate"
+            placeholder="Jane Doe"
+          />
+        </Form.Group>
+        <Form.Group>
+        <Form.Label>Konec visy</Form.Label>
+          <Form.Control
+            onChange={({target: { value } }) => getEndVisaDate({ value })}
+            type="date"
+            className="mb-2"
+            id="endVisaDate"
+            placeholder="Jane Doe"
+          />
+        </Form.Group>
+      </div>
+    );
+  }
+
+  render() {console.log(this.props.add)
     const {
       toogleAddModal, modallAddOn,
       onchangeName, onchangePhoneNumber,
       onchangeAddress,
       onchangePassportNumber, selctBirthDayDate,
       onchangeJob, polandFirmToogle, onchangeBankAccountNum,
+      chooseWayOfStay, wayOfStay,
       selctArriveDate, selectDepartureDate, onchangeCountLegalDays,
       selectPIPDate, selectConclusionDate,
       onchangeNotes,
     } = this.props;
+
     const classesAddModalWithBG = cn('modalBackgroundDiv', {
       addModalHide: !modallAddOn,
+    });
+
+    const showVisaInputs = wayOfStay === 'visa';
+    const classesWayOfStay = cn('mb-3', {
+      wayOfStay: !showVisaInputs,
+      wayOfStayWithDates: showVisaInputs,
     });
 
     return (
@@ -136,32 +180,41 @@ class AddModal extends React.Component {
             </div>
 
             <div className="containerInputDateAdd">
-              <Form.Group className="arriveDateAdd" controlId="exampleForm.ControlInput2">
-                <Form.Label>Data przyjazdu</Form.Label>
-                <Form.Control onChange={({ target: { value } }) => selctArriveDate({ value })} type="date" />
+              <Form.Group key='inline-radio' className={classesWayOfStay}>
+                <Form.Check onChange={({target: { id } }) => chooseWayOfStay({ id })} name="legalWay" inline label="BezVis" type='radio' id='bezViz' />
+                <Form.Check onChange={({target: { id } }) => chooseWayOfStay({ id} )} name="legalWay" inline label="Visa" type='radio' id='visa' />
               </Form.Group>
-              <Form.Group className="departureDateAdd" controlId="exampleForm.ControlInput3">
-                <Form.Label>Data wyjazdu</Form.Label>
-                <Form.Control onChange={({ target: { value } }) => selectDepartureDate({ value })} type="date" />
-              </Form.Group>
+              { showVisaInputs && this.renderVisaInputs()}
+              <div className="arriveDepartureDates">
+                <Form.Group className="arriveDateAdd" controlId="exampleForm.ControlInput2">
+                  <Form.Label>Data przyjazdu</Form.Label>
+                  <Form.Control onChange={({ target: { value } }) => selctArriveDate({ value })} type="date" />
+                </Form.Group>
+                <Form.Group className="departureDateAdd" controlId="exampleForm.ControlInput3">
+                  <Form.Label>Data wyjazdu</Form.Label>
+                  <Form.Control onChange={({ target: { value } }) => selectDepartureDate({ value })} type="date" />
+                </Form.Group>
+              </div>
               <Form.Group className="pobytSelectAdd">
-                <Form.Label>Pobyt</Form.Label>
+                <Form.Label>Zostalo dni</Form.Label>
                 <Form.Control
                   onChange={({ target: { value } }) => onchangeCountLegalDays({ value })}
                   type="number"
                   className="mb-2 mr-sm-2"
                   id="inlineFormInputName7"
-                  placeholder="Ile dni zostalo"
+                  placeholder="Pobyt"
                 />
               </Form.Group>
-              <Form.Group className="pipDateAdd" controlId="exampleForm.ControlInput4">
-                <Form.Label>Zgloszenia PIP</Form.Label>
-                <Form.Control onChange={({ target: { value } }) => selectPIPDate({ value })} type="date" />
-              </Form.Group>
-              <Form.Group className="kartaPobytuDateAdd" controlId="exampleForm.ControlInput5">
-                <Form.Label>Wniosek na kartu</Form.Label>
-                <Form.Control onChange={({ target: { value } }) => selectConclusionDate({ value })} type="date" />
-              </Form.Group>
+              <div className="kartaAndPIPDates">
+                <Form.Group className="pipDateAdd" controlId="exampleForm.ControlInput4">
+                  <Form.Label>Zgloszenia PIP</Form.Label>
+                  <Form.Control onChange={({ target: { value } }) => selectPIPDate({ value })} type="date" />
+                </Form.Group>
+                <Form.Group className="kartaPobytuDateAdd" controlId="exampleForm.ControlInput5">
+                  <Form.Label>Wniosek na kartu</Form.Label>
+                  <Form.Control onChange={({ target: { value } }) => selectConclusionDate({ value })} type="date" />
+                </Form.Group>
+              </div>
             </div>
 
             <div className="containerSubmitWithNotesAdd">

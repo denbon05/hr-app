@@ -18,6 +18,10 @@ const addModalsState = {
   birthday: null,
   job: null,
   polandFirm: false,
+  bankAccountNum: null,
+  wayOfStay: null,
+  startVisa: null,
+  endVisa: null,
   arriveDate: null,
   departureDate: null,
   countLegalDayLost: null,
@@ -25,33 +29,6 @@ const addModalsState = {
   kartaPobytuDate: null,
   notes: null,
 };
-
-// const updateStateAddModal = (state, id = null) => {
-//   const newState = Object.entries(state).reduce((acc, [key, value]) => {
-//     if (
-//       key === 'modallAddOn'
-//       || key === 'submitOn'
-//       || key === 'allIds'
-//       || key === 'byId'
-//     ) {
-//       acc[key] = value;
-//       return acc;
-//     }
-
-//     if (id) {
-//       acc.byId = [id];
-//       acc.byId.id = { [key]: value };
-//     }
-    
-//     if (key === 'polandFirm') {
-//       acc[key] = false;
-//       return acc;
-//     }
-//     acc[key] = null;
-//     return acc;
-//   }, { byId: {} });
-//   return newState;
-// };
 
 const addModal = handleActions({
   [actions.toogleAddModal](state) {
@@ -90,7 +67,19 @@ const addModal = handleActions({
     return { ...state };
   },
   [actions.onchangeBankAccountNum](state, { payload: { value } }) {
-    state.birthday = value;
+    state.bankAccountNum = value;
+    return { ...state };
+  },
+  [actions.chooseWayOfStay](state, { payload: { id } }) {
+    state.wayOfStay = id;
+    return { ...state };
+  },
+  [actions.getStartVisaDate](state, { payload: { value } }) {
+    state.startVisa = value;
+    return { ...state };
+  },
+  [actions.getEndVisaDate](state, { payload: { value } }) {
+    state.endVisa = value;
     return { ...state };
   },
   [actions.selctArriveDate](state, { payload: { value } }) {
@@ -117,28 +106,38 @@ const addModal = handleActions({
     state.notes = value;
     return { ...state };
   },
-  [actions.addWorker](state) {
+  [actions.addWorker](state, { payload: { id } }) {
     const { byId, allIds, modallAddOn } = state;
-    const id = _.uniqueId().toString();
     allIds.push(id);
-    byId[id] = {};
-    Object.entries(state).forEach(([key, value]) => {
+    const newWorker = Object.entries(state).reduce((acc, [key, value]) => {
       if (
         key === 'modallAddOn'
         || key === 'submitOn'
         || key === 'allIds'
         || key === 'byId'
-      ) return;
+      ) {
+        return acc;
+      }
   
-      state.byId[id] = { [key]: value };
-      
-      if (key === 'polandFirm') state[key] = false;
-      state[key] = null;
-    });
-    state.modallAddOn = !modallAddOn;console.log(state);
+      acc[key] = value;
+      state[key] = key === 'polandFirm' ? false : null;
+      return acc;
+    }, {});
+    byId[id] = { ...newWorker, state: 'working' };
+    state.modallAddOn = !modallAddOn;
     return { ...state };
   },
 }, addModalsState);
+
+// CONFIGURATION
+
+const configState = {};
+
+const configuration = handleActions({
+  [actions.setConfiguration](state) {
+
+  }
+}, configState);
 
 // REMINDER
 
@@ -186,6 +185,7 @@ const navForm = handleActions({
 
 export default combineReducers({
   addModal,
+  configuration,
   reminder,
   navForm,
   // tasks,

@@ -55,7 +55,6 @@
         width: 90%; 
         padding: 30px;
         padding-top: 50px;
-        top: 60px; left: 0; bottom: 0; right: 0;
   
         .containerForm {
           
@@ -196,16 +195,9 @@
             justify-content: space-between;
             flex-wrap: wrap;
   
-            .arriveDateAdd {
-            
-            }
-  
-            .departureDateAdd {
-  
-            }
-            
-            .pobytSelectAdd {
-  
+            .kartaAndPIPDates {
+              flex-basis: 100%;
+              justify-content: space-around;
             }
           }
 
@@ -320,15 +312,12 @@
             }
   
             .pobytSelectAdd {
-              flex-basis: 80%;
+              flex-basis: 60%;
             }
   
-            .pipDateAdd {
-              flex-basis: 40%;
-            }
-  
-            .kartaPobytuDateAdd {
-              flex-basis: 40%;
+            .kartaAndPIPDates {
+              flex-basis: 100%;
+              justify-content: center;
             }
           }
 

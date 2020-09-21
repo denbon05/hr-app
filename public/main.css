@@ -77,7 +77,7 @@
   overflow: auto;
   margin: auto;
   position: absolute;
-  top: 2rem;
+  top: 1rem;
   left: 0;
   bottom: 0;
   right: 0;
@@ -143,16 +143,28 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .arriveDateAdd {
-      flex-basis: 35%; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .departureDateAdd {
-      flex-basis: 35%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .wayOfStay {
+      flex-basis: 100%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .wayOfStayWithDates {
+      flex-basis: 30%;
+      white-space: nowrap; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .visaDate {
+      flex-basis: 60%;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .arriveDepartureDates {
+      flex-basis: 60%;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between; }
     .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .pobytSelectAdd {
-      flex-basis: 20%; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .pipDateAdd {
-      flex-basis: 40%; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaPobytuDateAdd {
-      flex-basis: 40%; }
+      flex-basis: 100px; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaAndPIPDates {
+      flex-basis: 80%;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap; }
   .modalBackgroundDiv .containerModalAdd .containerForm .containerSubmitWithNotesAdd {
     display: flex;
     flex-direction: row;
@@ -196,11 +208,7 @@
   .modalBackgroundDiv .containerModalAdd {
     width: 90%;
     padding: 30px;
-    padding-top: 50px;
-    top: 60px;
-    left: 0;
-    bottom: 0;
-    right: 0; }
+    padding-top: 50px; }
     .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo {
       display: flex;
       flex-wrap: wrap;
@@ -253,6 +261,9 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap; }
+      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaAndPIPDates {
+        flex-basis: 100%;
+        justify-content: space-around; }
     .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
       position: absolute;
       right: 20px;
@@ -292,11 +303,10 @@
       .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .departureDateAdd {
         flex-basis: 40%; }
       .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .pobytSelectAdd {
-        flex-basis: 80%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .pipDateAdd {
-        flex-basis: 40%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaPobytuDateAdd {
-        flex-basis: 40%; }
+        flex-basis: 60%; }
+      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaAndPIPDates {
+        flex-basis: 100%;
+        justify-content: center; }
     .modalBackgroundDiv .containerModalAdd .containerForm .containerSubmitWithNotesAdd .notesAdd {
       flex-basis: 70%; }
     .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
