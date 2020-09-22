@@ -4,8 +4,7 @@ import { Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import Calendar from './Calendar.jsx';
 import cn from 'classnames';
 import * as actions from '../actions/index.js';
-import logoHr from '../images/logoHR.png';
-import bell from '../images/bell-solid.svg';
+import map from '../map.js';
 
 const mapStateToProps = (state) => {
   const props = {
@@ -17,7 +16,7 @@ const mapStateToProps = (state) => {
 
 const actionCreators = {
   toogleAddModal: actions.toogleAddModal,
-  setConfiguration: actions.setConfiguration,
+  toogleConfigModal: actions.toogleConfigModal,
   clickBell: actions.clickBell,
 };
 
@@ -27,7 +26,7 @@ class NavBar extends React.Component {
 
   render() {
     const {
-      toogleAddModal, setConfiguration,
+      toogleAddModal, toogleConfigModal,
       bellClicked, clickBell,
     } = this.props;
     const bellClasses = cn("navBelIcon", {
@@ -39,7 +38,7 @@ class NavBar extends React.Component {
         <Navbar bg="light" expand="lg" className="navBar">
           <Navbar.Brand href="#home" className="logoBrand">
             <img
-              src={logoHr}
+              src={map.logoHr}
               width="30"
               height="30"
               className="d-inline-block align-top"
@@ -57,14 +56,14 @@ class NavBar extends React.Component {
             <Button size="sm" variant="outline-danger">
               <i className="fas fa-users-slash fa-lg" />
             </Button>
-            <Button onClick={setConfiguration} size="sm" variant="outline-warning">
+            <Button onClick={toogleConfigModal} size="sm" variant="outline-warning">
               <i className="fas fa-users-cog fa-lg" />
             </Button>
           </Nav>
 
           <Form inline className="navFormContainer">
             <section className="navIconContainer">
-              <img src={bell} onClick={clickBell} className={bellClasses} />
+              <img src={map.bell} onClick={clickBell} className={bellClasses} />
               {bellClicked && <div className="calendar"><Calendar /></div>}
             </section>
             <FormControl type="text" placeholder="Search" className="mr-sm-2 navFieldSearch" />

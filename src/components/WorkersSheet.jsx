@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Form, FormControl } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import cn from 'classnames';
 import _ from 'lodash';
 import * as actions from '../actions/index.js';
@@ -8,9 +8,9 @@ import { workersSelector } from '../selectors/index.js';
 
 const mapStateToProps = (state) => {
   const props = {
-    addModal: workersSelector(state),
+    workers: workersSelector(state),
   };
-  console.log(props);
+  // console.log(props);
   return props;
 };
 

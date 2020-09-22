@@ -8,8 +8,17 @@
   background-image: linear-gradient(rgba(64, 109, 159, 0.5), rgba(255, 245, 215, 0.4));
   z-index: 10; }
 
-.modalBackgroundDiv .containerModalAdd {
+.modalBackgroundDiv .containerModalAdd, .modalBackgroundDiv .containerModalConfig {
   z-index: 20; }
+
+.modalBackgroundDiv .containerModalAdd .closeButtonAdd, .modalBackgroundDiv .containerModalConfig .closeButtonAdd {
+  position: absolute;
+  color: darkred;
+  top: 6px;
+  right: 17px;
+  font-size: 1.5rem; }
+  .modalBackgroundDiv .containerModalAdd .closeButtonAdd:hover, .modalBackgroundDiv .containerModalConfig .closeButtonAdd:hover {
+    cursor: pointer; }
 
 * {
   margin: 0;
@@ -66,7 +75,6 @@
 
 .modalBackgroundDiv .containerModalAdd {
   position: relative;
-  background-color: rgba(191, 219, 191, 0.95);
   width: 80%;
   min-width: 400px;
   max-height: fit-content;
@@ -81,17 +89,10 @@
   left: 0;
   bottom: 0;
   right: 0;
-  border: rgba(191, 219, 191, 0.95) solid 1px;
   border-radius: 20px;
+  background-color: rgba(191, 219, 191, 0.95);
+  border: rgba(191, 219, 191, 0.95) solid 1px;
   box-shadow: 0px 0px 32px 2px rgba(27, 99, 111, 0.5); }
-  .modalBackgroundDiv .containerModalAdd .closeButtonAdd {
-    position: absolute;
-    color: darkred;
-    top: 6px;
-    right: 17px;
-    font-size: 1.5rem; }
-    .modalBackgroundDiv .containerModalAdd .closeButtonAdd:hover {
-      cursor: pointer; }
   .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo {
     display: flex;
     flex-wrap: wrap;
@@ -180,7 +181,54 @@
 .addModalHide {
   display: none; }
 
+.modalBackgroundDiv .containerModalConfig {
+  position: relative;
+  width: 80%;
+  min-width: 400px;
+  max-height: fit-content;
+  min-height: fit-content;
+  max-width: 1000px;
+  padding: 40px;
+  padding-top: 50px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 20px;
+  background-color: rgba(226, 223, 182, 0.95);
+  border: rgba(226, 223, 182, 0.95) solid 1px;
+  box-shadow: 0px 0px 32px 2px rgba(105, 111, 27, 0.5); }
+  .modalBackgroundDiv .containerModalConfig h4 {
+    text-align: center; }
+  .modalBackgroundDiv .containerModalConfig hr {
+    width: 60%;
+    margin: 20px auto;
+    color: gray; }
+  .modalBackgroundDiv .containerModalConfig .containerConfigForm {
+    min-height: 300px;
+    max-height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative; }
+    .modalBackgroundDiv .containerModalConfig .containerConfigForm .configItem {
+      flex-basis: 30%; }
+    .modalBackgroundDiv .containerModalConfig .containerConfigForm .buttonConfigModal {
+      position: absolute;
+      bottom: -10px;
+      right: 10px; }
+
+.configModalHide {
+  display: none; }
+
 @media screen and (max-device-width: 992px) {
+  .modalBackgroundDiv .containerModalAdd, .modalBackgroundDiv .containerModalConfig {
+    width: 90%;
+    padding: 30px;
+    padding-top: 50px; }
   .navBar {
     flex-wrap: wrap;
     justify-content: space-between;
@@ -205,109 +253,105 @@
       flex-direction: row;
       justify-content: space-around;
       order: 20; }
-  .modalBackgroundDiv .containerModalAdd {
-    width: 90%;
-    padding: 30px;
-    padding-top: 50px; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .nameAdd {
-        flex-basis: 45%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .telAdd {
-        flex-basis: 45%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .addressAdd {
-        flex-basis: 100%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
-        flex-basis: 45%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .jobAdd {
-        flex-basis: 100%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
-        flex-basis: 45%;
-        display: inline-flex; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
-      position: absolute;
-      right: 20px;
-      bottom: 20px; } }
+  .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .nameAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .telAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .addressAdd {
+      flex-basis: 100%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .jobAdd {
+      flex-basis: 100%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
+      flex-basis: 45%;
+      display: inline-flex; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
+    position: absolute;
+    right: 20px;
+    bottom: 20px; } }
 
 @media screen and (max-device-width: 768px) {
-  .modalBackgroundDiv .containerModalAdd {
+  .modalBackgroundDiv .containerModalAdd, .modalBackgroundDiv .containerModalConfig {
     width: 90%;
     padding: 20px;
     padding-top: 40px; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .nameAdd {
-        flex-basis: 45%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .telAdd {
-        flex-basis: 45%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .addressAdd {
-        flex-basis: 100%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
-        flex-basis: 45%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .jobAdd {
-        flex-basis: 100%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
-        flex-basis: 45%;
-        display: inline-flex; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaAndPIPDates {
-        flex-basis: 100%;
-        justify-content: space-around; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
-      position: absolute;
-      right: 20px;
-      bottom: 15px; } }
+  .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .nameAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .telAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .addressAdd {
+      flex-basis: 100%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
+      flex-basis: 45%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .jobAdd {
+      flex-basis: 100%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
+      flex-basis: 45%;
+      display: inline-flex; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaAndPIPDates {
+      flex-basis: 100%;
+      justify-content: space-around; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
+    position: absolute;
+    right: 20px;
+    bottom: 15px; } }
 
 @media screen and (max-device-width: 576px) {
-  .navBar .navFormContainer .navIconContainer .calendar {
-    left: 1%;
-    right: 1%; }
-  .modalBackgroundDiv .containerModalAdd {
+  .modalBackgroundDiv .containerModalAdd, .modalBackgroundDiv .containerModalConfig {
     width: 95%;
     padding: 20px;
     padding-top: 40px; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
+  .navBar .navFormContainer .navIconContainer .calendar {
+    left: 1%;
+    right: 1%; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .passportAdd {
+    flex-basis: 100%; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
+    flex-basis: 60%;
+    margin-left: 18vw; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .jobAdd {
+      flex-basis: 75%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .poladndFirm {
+      flex-basis: 15%;
+      align-self: center; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .bankNumber {
       flex-basis: 100%; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .mainInfo .birhDayDiv {
-      flex-basis: 60%;
-      margin-left: 18vw; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: wrap; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .jobAdd {
-        flex-basis: 75%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .poladndFirm {
-        flex-basis: 15%;
-        align-self: center; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .jobContainer .bankNumber {
-        flex-basis: 100%; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .arriveDateAdd {
-        flex-basis: 40%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .departureDateAdd {
-        flex-basis: 40%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .pobytSelectAdd {
-        flex-basis: 60%; }
-      .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaAndPIPDates {
-        flex-basis: 100%;
-        justify-content: center; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .containerSubmitWithNotesAdd .notesAdd {
-      flex-basis: 70%; }
-    .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
-      bottom: 15px; } }
+  .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .arriveDateAdd {
+      flex-basis: 40%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .departureDateAdd {
+      flex-basis: 40%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .pobytSelectAdd {
+      flex-basis: 60%; }
+    .modalBackgroundDiv .containerModalAdd .containerForm .containerInputDateAdd .kartaAndPIPDates {
+      flex-basis: 100%;
+      justify-content: center; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .containerSubmitWithNotesAdd .notesAdd {
+    flex-basis: 70%; }
+  .modalBackgroundDiv .containerModalAdd .containerForm .buttonAdd {
+    bottom: 15px; } }

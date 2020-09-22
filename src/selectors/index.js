@@ -1,13 +1,18 @@
-
 import { createSelector } from 'reselect';
 // import database from 'firebase/database';
 // console.log(database, 'DATABASE');
 
 const forSheetColection = ['modallAddOn', 'submitOn', 'allIds', 'byId'];
 
-export const getAddModalState = ({ addModal: { byId, allIds } }) => ({ byId, allIds });
+const getAddModalState = ({ addModal: { byId, allIds } }) => ({ byId, allIds });
+const getTitlesWithValuesOnOf = ({ configModal: { titles, valuesOnOf } }) => ({ titles, valuesOnOf});
 
 export const workersSelector = createSelector(
   getAddModalState,
-  ({ byId, allIds }) => allIds.map((id) => byId[id])
+  getTitlesWithValuesOnOf,
+  ({ byId, allIds }, { titles, valuesOnOf }) => {
+    const showingItems = allIds.map((item) => {
+
+    });
+  }
 );

@@ -30,6 +30,8 @@ const addModalsState = {
   notes: null,
 };
 
+const toogleAndColectionName = ['modallAddOn', 'submitOn', 'allIds', 'byId', 'modalConfigOn'];
+
 const addModal = handleActions({
   [actions.toogleAddModal](state) {
     const { modallAddOn } = state;
@@ -110,12 +112,7 @@ const addModal = handleActions({
     const { byId, allIds, modallAddOn } = state;
     allIds.push(id);
     const newWorker = Object.entries(state).reduce((acc, [key, value]) => {
-      if (
-        key === 'modallAddOn'
-        || key === 'submitOn'
-        || key === 'allIds'
-        || key === 'byId'
-      ) {
+      if (toogleAndColectionName.includes(key)) {
         return acc;
       }
   
@@ -131,10 +128,48 @@ const addModal = handleActions({
 
 // CONFIGURATION
 
-const configState = {};
+const configState = {
+  modalConfigOn: false,
+  titles: [
+    { name: 'Godnosc' }, { phone: 'Telefon' },
+    { address:'Adres' }, { passportNumb: 'Numer paszportu' }, { birthday: 'Data urodzenia' },
+    { job: 'Praca' }, { polandFirm: 'Polska firma' }, { bankAccountNum: 'Konto bankowe' },
+    { wayOfStay: 'Podstawa pobytu' },
+    { arriveDate: 'Data przyjazdu' }, { departureDate: 'Data wyjazdu' }, { countLegalDayLost: 'Dni do konca Visy/BezVizu' },
+    { datePIP: 'Data zgloszenia do PIP' }, { kartaPobytuDate: 'Data wniosku na karu' },
+    { notes:'Notatki' }
+  ],
+  valuesOnOf: {
+    name: true,
+    phone: true,
+    address: false,
+    passportNumb: false,
+    birthday: false,
+    job: false,
+    polandFirm: true,
+    bankAccountNum: false,
+    wayOfStay: false,
+    arriveDate: true,
+    departureDate: false,
+    countLegalDayLost: true,
+    datePIP: false,
+    kartaPobytuDate: false,
+    notes: true,
+  },
+};
 
-const configuration = handleActions({
-  [actions.setConfiguration](state) {
+const configModal = handleActions({
+  [actions.toogleConfigModal](state) {
+    const { modalConfigOn } = state;
+    state.modalConfigOn = !modalConfigOn;
+    return { ...state };
+  },
+  [actions.changeFilter](state, { payload: { name } }) {
+    const { valuesOnOf } = state;
+    valuesOnOf[name] = valuesOnOf[name] === true ? false : true;
+    return { ...state, valuesOnOf: { ...valuesOnOf } };
+  },
+  [actions.confirmFiltresForSheet](state) {
 
   }
 }, configState);
@@ -185,7 +220,7 @@ const navForm = handleActions({
 
 export default combineReducers({
   addModal,
-  configuration,
+  configModal,
   reminder,
   navForm,
   // tasks,

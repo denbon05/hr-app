@@ -1,9 +1,15 @@
-@mixin media {
+@mixin media {  
   @media screen and (max-device-width: 1200px) {
     
   }
 
   @media screen and (max-device-width: 992px) {
+    %containerModal-992 {
+      width: 90%; 
+      padding: 30px;
+      padding-top: 50px;
+    }
+
     //  NAV
 
     .navBar {
@@ -27,9 +33,6 @@
         .navIconContainer {
           margin-right: 1rem;
           margin-left: 0;
-          .navBelIcon {
-
-          }
 
           .calendar {
             margin-top: 60px;
@@ -52,9 +55,7 @@
     .modalBackgroundDiv {
   
       .containerModalAdd {
-        width: 90%; 
-        padding: 30px;
-        padding-top: 50px;
+        @extend %containerModal-992;
   
         .containerForm {
           
@@ -93,18 +94,6 @@
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-  
-            .arriveDateAdd {
-            
-            }
-  
-            .departureDateAdd {
-  
-            }
-            
-            .pobytSelectAdd {
-  
-            }
           }
 
           .buttonAdd {
@@ -115,37 +104,21 @@
         }
       }
     }
+
+    // MODAL CONFIG
+
+    .modalBackgroundDiv{
+      .containerModalConfig {
+        @extend %containerModal-992;
+      }
+    }
   }
 
   @media screen and (max-device-width: 768px) {
-    //NAV
-
-    .navBar {
-
-      .logoBrand {
-
-      }
-  
-      .navFormContainer {
-
-        .navFieldSearch {
-        }
-
-        .navIconContainer {
-
-          .navBelIcon {
-
-          }
-
-          .calendar {
-            
-          }
-        }
-      }
-  
-      .navLinksContainer {
-
-      }
+    %containerModal-768 {
+      width: 90%; 
+      padding: 20px;
+      padding-top: 40px;
     }
 
     // MODAL ADD
@@ -153,9 +126,7 @@
     .modalBackgroundDiv {
   
       .containerModalAdd {
-        width: 90%; 
-        padding: 20px;
-        padding-top: 40px;
+        @extend %containerModal-768;
   
         .containerForm {
           
@@ -209,37 +180,33 @@
         }
       }
     }
+
+    // MODAL CONFIG
+
+    .modalBackgroundDiv{
+      .containerModalConfig {
+        @extend %containerModal-768;
+      }
+    }
   }
 
   @media screen and (max-device-width: 576px) {
+    %containerModal-576 {
+      width: 95%; 
+      padding: 20px;
+      padding-top: 40px;
+    }
+
     //NAV
 
     .navBar {
-
-      .logoBrand {
-
-      }
-  
       .navFormContainer {
-
-        .navFieldSearch {
-        }
-
         .navIconContainer {
-
-          .navBelIcon {
-
-          }
-
           .calendar {
             left: 1%;
             right: 1%;
           }
         }
-      }
-  
-      .navLinksContainer {
-
       }
     }
 
@@ -248,26 +215,11 @@
     .modalBackgroundDiv {
   
       .containerModalAdd {
-        width: 95%; 
-        padding: 20px;
-        padding-top: 40px;
+        @extend %containerModal-576;
   
         .containerForm {
           
-          .mainInfo {
-  
-            .nameAdd {
-
-            }
-  
-            .telAdd {
-    
-            }
-  
-            .addressAdd {
-
-            }
-  
+          .mainInfo {  
             .passportAdd {
               flex-basis: 100%;
             }
@@ -333,6 +285,14 @@
             bottom: 15px;
           }
         }
+      }
+    }
+
+    // MODAL CONFIG
+
+    .modalBackgroundDiv{
+      .containerModalConfig {
+        @extend %containerModal-576;
       }
     }
   }

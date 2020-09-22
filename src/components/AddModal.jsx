@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
   const props = {
     modallAddOn: state.addModal.modallAddOn,
     wayOfStay: state.addModal.wayOfStay,
-    add: state.addModal,
   };
   return props;
 };
@@ -87,7 +86,7 @@ class AddModal extends React.Component {
     );
   }
 
-  render() {console.log(this.props.add)
+  render() {
     const {
       toogleAddModal, modallAddOn,
       onchangeName, onchangePhoneNumber,
