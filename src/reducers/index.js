@@ -120,7 +120,7 @@ const addModal = handleActions({
       state[key] = key === 'polandFirm' ? false : null;
       return acc;
     }, {});
-    byId[id] = { ...newWorker, state: 'working' };
+    byId[id] = { ...newWorker, state: 'working', id };
     state.modallAddOn = !modallAddOn;
     return { ...state };
   },
@@ -130,15 +130,15 @@ const addModal = handleActions({
 
 const configState = {
   modalConfigOn: false,
-  titles: [
-    { name: 'Godnosc' }, { phone: 'Telefon' },
-    { address:'Adres' }, { passportNumb: 'Numer paszportu' }, { birthday: 'Data urodzenia' },
-    { job: 'Praca' }, { polandFirm: 'Polska firma' }, { bankAccountNum: 'Konto bankowe' },
-    { wayOfStay: 'Podstawa pobytu' },
-    { arriveDate: 'Data przyjazdu' }, { departureDate: 'Data wyjazdu' }, { countLegalDayLost: 'Dni do konca Visy/BezVizu' },
-    { datePIP: 'Data zgloszenia do PIP' }, { kartaPobytuDate: 'Data wniosku na karu' },
-    { notes:'Notatki' }
-  ],
+  titles: {
+    name: 'Godnosc', phone: 'Telefon',
+    address:'Adres', passportNumb: 'Numer paszportu', birthday: 'Data urodzenia',
+    job: 'Praca', polandFirm: 'Polska firma', bankAccountNum: 'Konto bankowe',
+    wayOfStay: 'Podstawa pobytu',
+    arriveDate: 'Data przyjazdu', departureDate: 'Data wyjazdu', countLegalDayLost: 'Dni do konca Visy/BezVizu',
+    datePIP: 'Data zgloszenia do PIP', kartaPobytuDate: 'Data wniosku na karu',
+    notes:'Notatki',
+  },
   valuesOnOf: {
     name: true,
     phone: true,
@@ -169,9 +169,6 @@ const configModal = handleActions({
     valuesOnOf[name] = valuesOnOf[name] === true ? false : true;
     return { ...state, valuesOnOf: { ...valuesOnOf } };
   },
-  [actions.confirmFiltresForSheet](state) {
-
-  }
 }, configState);
 
 // REMINDER

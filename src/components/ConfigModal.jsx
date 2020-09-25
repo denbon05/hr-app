@@ -4,7 +4,6 @@ import { Button, Modal, Form, FormControl } from 'react-bootstrap';
 import cn from 'classnames';
 import _ from 'lodash';
 import * as actions from '../actions/index.js';
-import { titles } from '../reducers/index.js';
 
 const mapStateToProps = (state) => {
   const props = {
@@ -18,16 +17,19 @@ const mapStateToProps = (state) => {
 const actionCreators = {
   toogleConfigModal: actions.toogleConfigModal,
   changeFilter: actions.changeFilter,
-  confirmFiltresForSheet: actions.confirmFiltresForSheet,
 };
 
 class ConfigModal extends React.Component {
-  renderCheckBoxes() {
-    const { titles, valuesOnOf, changeFilter } = this.props;console.log(valuesOnOf)
+  clickOnNotModal = ({ target }) => {
+    const { toogleConfigModal } = this.props;
+    if (target.className == 'modalBackgroundDiv') toogleConfigModal();
+  }
 
-    return titles.map((titleObj) => {
+  renderCheckBoxes() {
+    const { titles, valuesOnOf, changeFilter } = this.props;
+
+    return Object.entries(titles).map(([name, title]) => {
       const uniqueKey = _.uniqueId();
-      const [[name, title]] = Object.entries(titleObj);
       const switchOn = valuesOnOf[name];
 
       return (
@@ -44,31 +46,20 @@ class ConfigModal extends React.Component {
     });
   }
 
-  handlerSubmit = (e) => {
-    e.preventDefault();
-    const { confirmFiltresForSheet } = this.props;
-  }
-
   render() {
     const { toogleConfigModal, modalConfigOn } = this.props;
     const classesModalWithBG = cn('modalBackgroundDiv', {
-      configModalHide: modalConfigOn,
+      configModalHide: !modalConfigOn,
     });
     
     return (
-      <div className={classesModalWithBG}>
+      <div onClick={this.clickOnNotModal} className={classesModalWithBG}>
         <div className="containerModalConfig">
-          <span onClick={toogleConfigModal} className="closeButtonAdd"><b>X</b></span>
+          <span onClick={toogleConfigModal} className="closeButtonConfig"><b>X</b></span>
           <h4>Wybierz filtry</h4>
           <hr />
-          <Form onSubmit={this.handlerSubmit} className="containerConfigForm">
+          <Form className="containerConfigForm">
             {this.renderCheckBoxes()}
-            <Button
-              variant="warning"
-              className="buttonConfigModal"
-            >
-              Zastosuj
-            </Button>
           </Form>
         </div>
       </div>

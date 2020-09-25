@@ -23,7 +23,6 @@ export const addWorker = createAction('ADD_WORKER');
 //  CONFIGURATION
 export const toogleConfigModal = createAction('SET_CONFIGURATION');
 export const changeFilter = createAction('CHANGE_FILTER');
-export const confirmFiltresForSheet = createAction('CONFIRM_FILTERS_FOR_TABLE');
 // REMINDER
 export const clickBell = createAction('CLICK_BELL');
 export const removeTask = createAction('TASK_REMOVE');

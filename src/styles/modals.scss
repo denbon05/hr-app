@@ -218,7 +218,7 @@
       @include modalStyles(containerModalConfig);
       @extend %modalZindex;
 
-      .closeButtonAdd {
+      .closeButtonConfig {
         @extend %closeModalButton;
       }
 
@@ -242,11 +242,7 @@
 
         .configItem {
           flex-basis: 30%;
-        }
-
-        .buttonConfigModal {
-          position: absolute;
-          bottom: -10px; right: 10px;
+          margin: 1rem auto;
         }
       }
     }
