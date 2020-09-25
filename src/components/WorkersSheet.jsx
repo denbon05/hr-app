@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import cn from 'classnames';
 import _ from 'lodash';
 import * as actions from '../actions/index.js';
@@ -26,26 +26,29 @@ class WorkersSheet extends React.Component {
 
   renderTbodyContent() {
     const { workers } = this.props;
-    return workers.map((worker, idx) => (
-      <tr>
-        <td>{idx + 1}</td>
-        {Object.entries(worker).map(([key, info]) => {
-          switch (key) {
-            case 'id':
-              return;
-            case 'polandFirm':
-              return <td>{key ? 'Tak' : 'Nie'}</td>;
-          }
-          return (<td>{info}</td>);
-        })}
-      </tr>
-    ));
+    return workers.map((worker, idx) => {
+      const { id } = worker;
+      return (
+        <tr>
+          <td>{idx + 1}</td>
+          {Object.entries(worker).map(([key, info]) => {
+            switch (key) {
+              case 'id':
+                return;
+              case 'polandFirm':
+                return <td>{info ? 'Tak' : 'Nie'}</td>;
+            }
+            return (<td>{info}</td>);
+          })}
+        </tr>
+      )
+    });
   }
 
   render() {
     
     return (
-      <Table striped bordered hover size="sm">
+      <Table className="tableContainer" striped bordered hover size="sm">
         <thead>
           <tr>
             <th>#</th>

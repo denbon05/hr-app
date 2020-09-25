@@ -73,6 +73,9 @@
     display: flex;
     justify-content: space-around; }
 
+.tableContainer tbody tr:hover {
+  cursor: pointer; }
+
 .modalBackgroundDiv .containerModalAdd {
   position: relative;
   width: 80%;

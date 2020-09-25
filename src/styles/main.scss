@@ -83,5 +83,17 @@
   }
 }
 
+// TABLE
+
+.tableContainer {
+  tbody {
+    tr {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 @include modals;
 @include media;

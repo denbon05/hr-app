@@ -11,23 +11,23 @@ const addModalsState = {
   byId: {},
   modallAddOn: false,
   submitOn: false,
-  name: null,
-  phone: null,
-  address: null,
-  passportNumb: null,
-  birthday: null,
-  job: null,
+  name: '',
+  phone: '',
+  address: '',
+  passportNumb: '',
+  birthday: '',
+  job: '',
   polandFirm: false,
-  bankAccountNum: null,
-  wayOfStay: null,
-  startVisa: null,
-  endVisa: null,
-  arriveDate: null,
-  departureDate: null,
-  countLegalDayLost: null,
-  datePIP: null,
-  kartaPobytuDate: null,
-  notes: null,
+  bankAccountNum: '',
+  wayOfStay: '',
+  startVisa: '',
+  endVisa: '',
+  arriveDate: '',
+  departureDate: '',
+  countLegalDayLost: '',
+  datePIP: '',
+  kartaPobytuDate: '',
+  notes: '',
 };
 
 const toogleAndColectionName = ['modallAddOn', 'submitOn', 'allIds', 'byId', 'modalConfigOn'];
@@ -36,8 +36,15 @@ const addModal = handleActions({
   [actions.toogleAddModal](state) {
     const { modallAddOn } = state;
     state.modallAddOn = !modallAddOn;
+    const resetedState = Object.keys(state).reduce((acc, key) => {
+      if (toogleAndColectionName.includes(key)) {
+        return acc;
+      }
 
-    return { ...state };
+      acc[key] = key === 'polandFirm' ? false : '';
+      return acc;
+    }, {});
+    return { ...state, ...resetedState };
   },
   [actions.onchangeName](state, { payload : { value } }) {
     state.name = value;
@@ -117,11 +124,10 @@ const addModal = handleActions({
       }
   
       acc[key] = value;
-      state[key] = key === 'polandFirm' ? false : null;
       return acc;
     }, {});
     byId[id] = { ...newWorker, state: 'working', id };
-    state.modallAddOn = !modallAddOn;
+    state.modallAddOn = !modallAddOn;console.log(state)
     return { ...state };
   },
 }, addModalsState);

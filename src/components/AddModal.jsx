@@ -9,6 +9,23 @@ const mapStateToProps = (state) => {
   const props = {
     modallAddOn: state.addModal.modallAddOn,
     wayOfStay: state.addModal.wayOfStay,
+    name: state.addModal.name,
+    phone: state.addModal.phone,
+    address: state.addModal.address,
+    passportNumb: state.addModal.passportNumb,
+    birthday: state.addModal.birthday,
+    job: state.addModal.job,
+    polandFirm: state.addModal.polandFirm,
+    bankAccountNum: state.addModal.bankAccountNum,
+    wayOfStay: state.addModal.wayOfStay,
+    startVisa: state.addModal.startVisa,
+    endVisa: state.addModal.endVisa,
+    arriveDate: state.addModal.arriveDate,
+    departureDate: state.addModal.departureDate,
+    countLegalDayLost: state.addModal.countLegalDayLost,
+    datePIP: state.addModal.datePIP,
+    kartaPobytuDate: state.addModal.kartaPobytuDate,
+    notes: state.addModal.notes,
   };
   return props;
 };
@@ -116,6 +133,7 @@ class AddModal extends React.Component {
           <Form onSubmit={(e) => this.handlerAddWorker(e)} className="containerForm">
             <div className="mainInfo">
               <Form.Control
+                value={this.props.name}
                 onChange={({ target: { value } }) => onchangeName({ value })}
                 required
                 type="text"
@@ -125,6 +143,7 @@ class AddModal extends React.Component {
               />
               <Form.Control
                 onChange={({ target: { value } }) => onchangePhoneNumber({ value })}
+                value={this.props.phone}
                 type="number"
                 className="mb-2 mr-sm-2 telAdd"
                 id="inlineFormInputName3"
@@ -132,6 +151,7 @@ class AddModal extends React.Component {
               />
               <Form.Control
                 onChange={({ target: { value } }) => onchangeAddress({ value })}
+                value={this.props.address}
                 type="address"
                 className="mb-2 mr-sm-2 addressAdd"
                 id="inlineFormInputName4"
@@ -140,6 +160,7 @@ class AddModal extends React.Component {
               <Form.Control
                 onChange={({ target: { value } }) => onchangePassportNumber({ value })}
                 type="text"
+                value={this.props.passportNumb}
                 className="mb-2 mr-sm-2 passportAdd"
                 id="inlineFormInputName5"
                 placeholder="Numer paszportu"
@@ -147,6 +168,7 @@ class AddModal extends React.Component {
               <Form.Group className="birhDayDiv" controlId="exampleForm.ControlInput1">
                 <i data-tooltip="data urodzenia" className="fas fa-baby fa-2x mr-2"></i>
                 <Form.Control
+                  value={this.props.birthday}
                   onChange={({ target: { value } }) => selctBirthDayDate({ value })}
                   type="date"
                   max={this.maxShowBirthDayDate()}
@@ -157,6 +179,7 @@ class AddModal extends React.Component {
             <div className="jobContainer">
               <Form.Control
                   onChange={({ target: { value } }) => onchangeJob({ value })}
+                  value={this.props.job}
                   type="text"
                   className="mb-2 mr-sm-2 jobAdd"
                   id="inlineFormInputName6"
@@ -164,6 +187,7 @@ class AddModal extends React.Component {
               />
               <Form.Check
                 onChange={polandFirmToogle}
+                value={this.props.polandFirm}
                 type="checkbox"
                 className="mb-2 mr-sm-2 poladndFirm"
                 id="inlineFormCheck"
@@ -171,6 +195,7 @@ class AddModal extends React.Component {
               />
               <Form.Control
                 onChange={({ target: { value } }) => onchangeBankAccountNum({ value })}
+                value={this.props.bankAccountNum}
                 type="number"
                 className="mb-2 mr-sm-2 bankNumber"
                 id="inlineFormInputName7"
@@ -187,17 +212,18 @@ class AddModal extends React.Component {
               <div className="arriveDepartureDates">
                 <Form.Group className="arriveDateAdd" controlId="exampleForm.ControlInput2">
                   <Form.Label>Data przyjazdu</Form.Label>
-                  <Form.Control onChange={({ target: { value } }) => selctArriveDate({ value })} type="date" />
+                  <Form.Control value={this.props.arriveDate} onChange={({ target: { value } }) => selctArriveDate({ value })} type="date" />
                 </Form.Group>
                 <Form.Group className="departureDateAdd" controlId="exampleForm.ControlInput3">
                   <Form.Label>Data wyjazdu</Form.Label>
-                  <Form.Control onChange={({ target: { value } }) => selectDepartureDate({ value })} type="date" />
+                  <Form.Control value={this.props.departureDate} onChange={({ target: { value } }) => selectDepartureDate({ value })} type="date" />
                 </Form.Group>
               </div>
               <Form.Group className="pobytSelectAdd">
                 <Form.Label>Zostalo dni</Form.Label>
                 <Form.Control
                   onChange={({ target: { value } }) => onchangeCountLegalDays({ value })}
+                  value={this.props.countLegalDayLost}
                   type="number"
                   className="mb-2 mr-sm-2"
                   id="inlineFormInputName7"
@@ -207,11 +233,11 @@ class AddModal extends React.Component {
               <div className="kartaAndPIPDates">
                 <Form.Group className="pipDateAdd" controlId="exampleForm.ControlInput4">
                   <Form.Label>Zgloszenia PIP</Form.Label>
-                  <Form.Control onChange={({ target: { value } }) => selectPIPDate({ value })} type="date" />
+                  <Form.Control value={this.props.datePIP} onChange={({ target: { value } }) => selectPIPDate({ value })} type="date" />
                 </Form.Group>
                 <Form.Group className="kartaPobytuDateAdd" controlId="exampleForm.ControlInput5">
                   <Form.Label>Wniosek na kartu</Form.Label>
-                  <Form.Control onChange={({ target: { value } }) => selectConclusionDate({ value })} type="date" />
+                  <Form.Control value={this.props.kartaPobytuDate} onChange={({ target: { value } }) => selectConclusionDate({ value })} type="date" />
                 </Form.Group>
               </div>
             </div>
